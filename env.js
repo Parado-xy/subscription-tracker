@@ -1,7 +1,9 @@
 import { config } from "dotenv";
 
 config({
+  // eslint-disable-next-line no-undef
   path: `./config/.env.${process.env.NODE_ENV || "development"}.local`,
 });
 
-export const { PORT } = process.env;
+// eslint-disable-next-line no-undef
+export const { PORT, DB_URI, NODE_ENV } = process.env;

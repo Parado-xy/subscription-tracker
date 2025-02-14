@@ -1,11 +1,11 @@
-import {Router} from 'express'
+import {Router} from 'express';
 
 const subscriptionRouter = Router();
 
 subscriptionRouter.get('/', (req, res) => {
     res.status(200).json({
         message: "success"
-    })
+    });
 });
 
 subscriptionRouter.post("/", (req, res) => {
@@ -44,4 +44,4 @@ subscriptionRouter.get("/upcoming-renewals", (req, res) => {
   });
 });
 
-export default subscriptionRouter
+export default subscriptionRouter;
