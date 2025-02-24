@@ -60,18 +60,18 @@ const subscriptionSchema = mongoose.Schema(
         validator: (date) => {
           return date <= new Date();
         },
-        message: "Start date cannot be in the future",
+        message: "Start date cannot be in the past",
       },
     },
 
     renewalDate: {
       type: Date,
-      required: [true, "Start date required"],
+      required: [true, "Renewal date required"],
       validate: {
         validator: function (date) {
           return date >= this.startDate;
         },
-        message: "Renewal date cannot be in the past",
+        message: "Renewal date cannot be before the start date",
       },
     },
     user: {

@@ -8,7 +8,7 @@ const errorHandler = (err, req, res, next) => {
         }
 
         console.error(err);
-        // Mongoose validation error
+        // Mongoose validation error  
         if(err.name === "ValidationError"){
             error.message = err.errors;
             error.status = 400;
@@ -22,6 +22,7 @@ const errorHandler = (err, req, res, next) => {
             error.status = 400;
         }
 
+        res.status(error.status).json({"success": false, "message":error.message})
     }catch(err){
         next(err);
     }
